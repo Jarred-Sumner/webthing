@@ -1,0 +1,12 @@
+{
+  "extends": "../../../tsconfig.json",
+  "baseDir": "./",
+  "rootDir": "src",
+  "paths": {
+    "@webthing/core": "../core"
+  },
+  "compilerOptions": {
+    "outDir": "dist" // <--- Don't forget this,
+  },
+  "exclude": ["node_modules", "dist"]
+}

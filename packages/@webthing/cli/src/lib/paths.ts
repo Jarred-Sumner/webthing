@@ -1,3 +1,5 @@
+export const HOME_DIR = __non_webpack_require__("os").homedir();
+
 export const WEBTHING_BIN_FILENAME =
   process.env.NODE_ENV === "production" ? "webthing" : "webthing-dev";
 

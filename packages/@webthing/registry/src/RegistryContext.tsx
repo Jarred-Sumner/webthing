@@ -4,7 +4,7 @@ import {
   CategoryType,
   ImageURLShape,
   ImageURLInputShape
-} from "../registry";
+} from "./index";
 import { isValidElementType } from "react-is";
 import {
   fromPairs,
@@ -16,7 +16,7 @@ import {
   isEmpty,
   merge
 } from "lodash";
-import { Template } from "../components/WebthingContext";
+import { Template } from "@webthing/core";
 
 const REQUIRED_KEYS = ["title", "src", "category"];
 
@@ -30,7 +30,9 @@ const normalizeImageURL = (input: ImageURLInputShape): ImageURLShape | null => {
   } else if (isArrayLike(input)) {
     const _input = [2, 1, 0].map(index => {
       return last(
-        input.slice(0, index).filter(row => !isNull(row) && !isUndefined(row))
+        (input as Array<string>)
+          .slice(0, index)
+          .filter(row => !isNull(row) && !isUndefined(row))
       );
     });
 
@@ -108,7 +110,7 @@ export const RegistryContext = React.createContext<RegistryContextType>({
 type Props = {
   initialInlines: ComponentManifestMap;
   initialBlocks: ComponentManifestMap;
-  children: React.ReactChildren;
+  children: React.ReactNode;
   template: Template;
 };
 

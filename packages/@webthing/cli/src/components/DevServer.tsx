@@ -1,4 +1,4 @@
-import { CategoryType } from "@webthing/core/dist/registry";
+import { CategoryType } from "@webthing/registry";
 import express from "express";
 import fs from "fs";
 import { Box, Color, Static, Text } from "ink";

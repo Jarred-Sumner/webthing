@@ -1,8 +1,8 @@
-import CodeAsset1x from "@webthing/registry/assets/inlines/InlineCode.png";
-import CodeAsset2x from "@webthing/registry/assets/inlines/InlineCode@2x.png";
-import CodeAsset3x from "@webthing/registry/assets/inlines/InlineCode@3x.png";
+import CodeAsset1x from "../../assets/inlines/InlineCode.png";
+import CodeAsset2x from "../../assets/inlines/InlineCode@2x.png";
+import CodeAsset3x from "../../assets/inlines/InlineCode@3x.png";
 import styled from "@emotion/styled";
-import { CategoryType } from "../../../registry";
+import { CategoryType } from "../../";
 
 const InlineCodeComponent = styled.span`
   background-color: #eee;

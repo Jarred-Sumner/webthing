@@ -1,3 +1,4 @@
+// @ts-ignore
 import { isEqual } from "lodash";
 import * as React from "react";
 import {
@@ -25,7 +26,7 @@ interface Props {
   BlogPostComponent: BlogPostComponentType;
 }
 
-export const normalizePost = (post: any, blog: any) => {
+const normalizePost = (post: any, blog: any) => {
   let {
     published_at: publishedAt = null,
     editedAt: editedAt = null,

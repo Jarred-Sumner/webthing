@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["dom", "es2015", "es2016", "es2017", "es2018"],
+    "jsx": "react",
+    "target": "es2017",
+    "module": "umd",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "esModuleInterop": true
+  },
+  "include": ["./src"],
+  "paths": {
+    "@webthing/core": "../core/src",
+    "@webthing/cli": "../cli/src",
+    "@webthing/registry": "../registry/src"
+  },
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,35 @@
+{
+  "only": ["src"],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "umd"
+      }
+    ],
+    "@babel/react",
+    "@babel/typescript",
+    "@emotion/babel-preset-css-prop"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@webthing/core": "./"
+        }
+      }
+    ],
+    "babel-plugin-transform-css-import-to-string",
+    [
+      "transform-assets-import-to-string",
+      {
+        "baseDir": "",
+        "baseUri": "https://codeblog-public.storage.googleapis.com"
+      }
+    ],
+    "@babel/plugin-proposal-class-properties"
+  ]
+}
+

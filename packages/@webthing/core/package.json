@@ -1,14 +1,16 @@
 {
   "name": "@webthing/core",
-  "version": "3.3.3",
+  "version": "3.3.11",
   "browser": "dist/index.js",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "predev": "rimraf dist",
+    "build-typescript": "tsc -p tsconfig.json --rootDir src",
     "dev": "NODE_ENV=production babel src -x .js,.tsx,.ts -d dist --verbose --watch",
-    "build": "NODE_ENV=development babel src -x .js,.tsx,.ts -d dist --verbose"
+    "build-js": "NODE_ENV=development babel src -x .js,.tsx,.ts -d dist --verbose",
+    "build": "yarn build-js && yarn build-typescript"
   },
   "files": [
     "dist"
@@ -42,7 +44,7 @@
     "@types/bluebird": "^3.5.26",
     "@types/express": "^4.16.1",
     "@types/fs-extra": "^7.0.0",
-    "@types/lodash": "^4.14.123",
+    "@types/lodash": "4.14.132",
     "@types/react": "^16.8.15",
     "@types/socket.io": "^2.1.2",
     "@types/tar-stream": "^1.6.0",
@@ -107,7 +109,7 @@
     "tar-stream": "^2.0.1",
     "tough-cookie": "^3.0.1",
     "tough-cookie-file-store": "^1.2.0",
-    "typescript": "^3.4.5",
+    "typescript": "^3.2.0",
     "uws": "10.148.1",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",

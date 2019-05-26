@@ -1,5 +1,15 @@
 {
   "private": true,
   "name": "webthing",
-  "scripts": {}
+  "scripts": {
+    "predev": "rush update",
+    "dev-core": "cd packages/@webthing/core && yarn dev",
+    "dev-registry": "cd packages/@webthing/registry && yarn dev",
+    "dev-blog-template": "cd packages/@webthing/blog-template && yarn dev",
+    "dev-cli": "cd packages/@webthing/cli && yarn dev",
+    "dev": "concurrently 'yarn dev-core' 'yarn dev-registry' 'yarn dev-blog-template' 'yarn dev-cli'"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
 }

@@ -1,0 +1,47 @@
+{
+  "name": "@webthing/core",
+  "entries": [
+    {
+      "version": "3.3.11",
+      "tag": "@webthing/core_v3.3.11",
+      "date": "Sun, 26 May 2019 04:10:52 GMT",
+      "comments": {}
+    },
+    {
+      "version": "3.3.10",
+      "tag": "@webthing/core_v3.3.10",
+      "date": "Sun, 26 May 2019 04:06:26 GMT",
+      "comments": {}
+    },
+    {
+      "version": "3.3.9",
+      "tag": "@webthing/core_v3.3.9",
+      "date": "Sun, 26 May 2019 04:06:02 GMT",
+      "comments": {}
+    },
+    {
+      "version": "3.3.8",
+      "tag": "@webthing/core_v3.3.8",
+      "date": "Sun, 26 May 2019 03:55:20 GMT",
+      "comments": {}
+    },
+    {
+      "version": "3.3.7",
+      "tag": "@webthing/core_v3.3.7",
+      "date": "Sun, 26 May 2019 02:07:14 GMT",
+      "comments": {}
+    },
+    {
+      "version": "3.3.6",
+      "tag": "@webthing/core_v3.3.6",
+      "date": "Sun, 26 May 2019 02:07:04 GMT",
+      "comments": {}
+    },
+    {
+      "version": "3.3.5",
+      "tag": "@webthing/core_v3.3.5",
+      "date": "Sun, 26 May 2019 02:00:51 GMT",
+      "comments": {}
+    }
+  ]
+}

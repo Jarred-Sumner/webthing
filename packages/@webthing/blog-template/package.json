@@ -2,16 +2,20 @@
   "name": "@webthing/blog-template",
   "main": "./dist/template",
   "scripts": {
-    "dev": "NODE_ENV=production babel src -x .js,.tsx,.ts -d dist --verbose --watch",
-    "build": "NODE_ENV=development babel src -x .js,.tsx,.ts -d dist --verbose"
+    "dev-css": "NODE_ENV=development postcss --config . src/styles.css -o dist/styles.css --watch",
+    "build-css": "NODE_ENV=production postcss --config . src/styles.css -o dist/styles.css",
+    "dev": "rimraf dist && concurrently 'yarn dev-css' 'yarn dev-js'",
+    "dev-js": "NODE_ENV=production babel src -x .js,.tsx,.ts -d dist --verbose --watch",
+    "build-js": "NODE_ENV=development babel src -x .js,.tsx,.ts -d dist --verbose",
+    "build": "rimraf dist && yarn build-css && yarn build-js"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "@webthing/cli": "latest",
-    "@webthing/core": "latest",
-    "@webthing/registry": "latest",
+    "@webthing/cli": "3.3.11",
+    "@webthing/core": "3.3.5",
+    "@webthing/registry": "3.3.7",
     "react-headroom": "latest"
   },
   "devDependencies": {
@@ -31,7 +35,7 @@
     "@types/bluebird": "^3.5.26",
     "@types/express": "^4.16.1",
     "@types/fs-extra": "^7.0.0",
-    "@types/lodash": "^4.14.123",
+    "@types/lodash": "4.14.132",
     "@types/react": "^16.8.15",
     "@types/socket.io": "^2.1.2",
     "@types/tar-stream": "^1.6.0",
@@ -96,7 +100,7 @@
     "tar-stream": "^2.0.1",
     "tough-cookie": "^3.0.1",
     "tough-cookie-file-store": "^1.2.0",
-    "typescript": "^3.4.5",
+    "typescript": "^3.2.0",
     "uws": "10.148.1",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",
@@ -105,5 +109,5 @@
     "webpack-permissions-plugin": "^1.0.3",
     "yargs": "^13.2.2"
   },
-  "version": "3.3.5"
+  "version": "3.3.11"
 }

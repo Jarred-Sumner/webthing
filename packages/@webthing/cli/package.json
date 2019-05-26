@@ -1,6 +1,6 @@
 {
   "name": "@webthing/cli",
-  "version": "3.3.4",
+  "version": "3.3.11",
   "browser": "dist/index.js",
   "main": "dist/index.js",
   "bin": {
@@ -10,8 +10,8 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "predev": "rimraf dist",
-    "dev": "NODE_ENV=development webpack --config cli/webpack.config.js --watch",
-    "build": "NODE_ENV=production node --max_old_space_size=4096 ./node_modules/.bin/webpack --config webpack.config.js"
+    "dev": "NODE_ENV=development webpack --config webpack.config.js --watch",
+    "build": "NODE_ENV=production webpack --config webpack.config.js"
   },
   "files": [
     "dist",
@@ -39,14 +39,14 @@
     "@types/bluebird": "^3.5.26",
     "@types/express": "^4.16.1",
     "@types/fs-extra": "^7.0.0",
-    "@types/lodash": "^4.14.123",
+    "@types/lodash": "4.14.132",
     "@types/react": "^16.8.15",
     "@types/socket.io": "^2.1.2",
     "@types/tar-stream": "^1.6.0",
     "@types/webpack": "^4.4.30",
     "@types/yargs": "^13.0.0",
-    "@webthing/core": "latest",
-    "@webthing/registry": "latest",
+    "@webthing/core": "3.3.5",
+    "@webthing/registry": "3.3.7",
     "@zeit/ncc": "^0.18.3",
     "babel-loader": "^8.0.5",
     "babel-plugin-emotion": "^10.0.9",
@@ -115,7 +115,7 @@
     "tinycolor2": "^1.4.1",
     "tough-cookie": "^3.0.1",
     "tough-cookie-file-store": "^1.2.0",
-    "typescript": "^3.4.5",
+    "typescript": "^3.2.0",
     "uws": "10.148.1",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",

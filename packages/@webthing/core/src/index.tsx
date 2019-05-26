@@ -1,4 +1,5 @@
 import * as React from "react";
+// @ts-ignore
 import { HeadProvider } from "react-head";
 import { WebthingProvider } from "./components/Webthing";
 import {
@@ -18,11 +19,9 @@ import { isValidElementType } from "react-is";
 export { Template };
 
 type WebthingPostProps = WebthingContextInterface & {
-  children: React.ReactNode;
-  BlogComponent?: BlogComponentType;
-  BlogPostComponent?: BlogPostComponentType;
-  template?: Template;
   headTags?: [];
+  template: Template;
+  children: React.ReactNode;
 };
 
 export class WebthingError extends Error {}
@@ -68,7 +67,6 @@ const validateTemplate = (template: Template, throwOnError: boolean) => {
 };
 
 export const WebthingRoot = (props: WebthingPostProps) => {
-  console.log(props);
   if (props.pageType === "show") {
     return <WebthingPost {...props} />;
   } else if (props.pageType === "editor") {
@@ -201,11 +199,3 @@ export {
   PageType,
   WebthingProvider
 };
-
-export {
-  BlogSEOTags,
-  BlogPostSEOTags,
-  Title,
-  Meta,
-  Link
-} from "./components/SEOTags";

@@ -6,6 +6,7 @@ import {
   WebthingContextInterface
 } from "./WebthingContext";
 
+// @ts-ignore
 import { Title, Meta, Link } from "react-head";
 
 export { Title, Meta, Link };

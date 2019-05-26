@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "./EditableProps", "./RegistryContext", "./ComponentLoader"], factory);
+    define(["exports", "./EditableProps", "./RegistryContext"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("./EditableProps"), require("./RegistryContext"), require("./ComponentLoader"));
+    factory(exports, require("./EditableProps"), require("./RegistryContext"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.EditableProps, global.RegistryContext, global.ComponentLoader);
+    factory(mod.exports, global.EditableProps, global.RegistryContext);
     global.index = mod.exports;
   }
-})(this, function (_exports, _EditableProps, _RegistryContext, _ComponentLoader) {
+})(this, function (_exports, _EditableProps, _RegistryContext) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -56,30 +56,6 @@
     enumerable: true,
     get: function get() {
       return _RegistryContext.isVoid;
-    }
-  });
-  Object.defineProperty(_exports, "getModule", {
-    enumerable: true,
-    get: function get() {
-      return _ComponentLoader.getModule;
-    }
-  });
-  Object.defineProperty(_exports, "loadScript", {
-    enumerable: true,
-    get: function get() {
-      return _ComponentLoader.loadScript;
-    }
-  });
-  Object.defineProperty(_exports, "loadAndEvalScript", {
-    enumerable: true,
-    get: function get() {
-      return _ComponentLoader.loadAndEvalScript;
-    }
-  });
-  Object.defineProperty(_exports, "ComponentLoader", {
-    enumerable: true,
-    get: function get() {
-      return _ComponentLoader.ComponentLoader;
     }
   });
   _exports.TemplateCategoryType = _exports.CategoryType = _exports.InlineTypes = _exports.BlockTypes = void 0;

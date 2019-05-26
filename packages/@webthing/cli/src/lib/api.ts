@@ -7,6 +7,7 @@ import Headers from "fetch-headers";
 import { Stream } from "stream";
 import FormData from "form-data";
 import streamLength from "stream-length";
+import { HOME_DIR } from "./paths";
 
 const fetchWrapper = (jar: CookieJar) => fetchCookie(_fetch, jar);
 
@@ -21,7 +22,7 @@ export const HOSTNAME =
 export const buildUrl = (path: string) => `${HOSTNAME}/api/v1/${path}`;
 
 const COOKIE_STORE_PATH = path.join(
-  process.env.HOME || "./",
+  HOME_DIR || "./",
   process.env.NODE_ENV === "production" ? `.webthingrc` : ".webthingrc-dev"
 );
 

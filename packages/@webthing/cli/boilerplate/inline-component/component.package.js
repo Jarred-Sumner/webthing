@@ -1,4 +1,4 @@
-import { CategoryType, EditableProps } from "@webthing/core/dist/registry";
+import { CategoryType, EditableProps } from "@webthing/registry";
 
 // This file will eventually be compiled into a package.json by webthing cli
 module.exports = {

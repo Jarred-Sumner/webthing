@@ -35,7 +35,7 @@ module.exports = {
     new PermissionsOutputPlugin({
       buildFiles: [
         {
-          path: path.resolve(__dirname, "../bin", fileName),
+          path: path.resolve(__dirname, "./bin", fileName),
           fileMode: "777"
         }
       ]

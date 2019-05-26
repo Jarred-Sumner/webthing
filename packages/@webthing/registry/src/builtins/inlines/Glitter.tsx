@@ -1,8 +1,8 @@
-import GlitterAsset1x from "@webthing/registry/assets/inlines/Glitter.png";
-import GlitterAsset2x from "@webthing/registry/assets/inlines/Glitter@2x.png";
-import GlitterAsset3x from "@webthing/registry/assets/inlines/Glitter@3x.png";
+import GlitterAsset1x from "../../assets/inlines/Glitter.png";
+import GlitterAsset2x from "../../assets/inlines/Glitter@2x.png";
+import GlitterAsset3x from "../../assets/inlines/Glitter@3x.png";
 import styled from "@emotion/styled";
-import { CategoryType } from "../../../registry";
+import { CategoryType } from "../../";
 
 const GlitterComponent = styled.span`
   background: linear-gradient(transparent, transparent),

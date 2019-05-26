@@ -1,4 +1,4 @@
-import { TemplateCategoryType } from "@webthing/core/dist/registry";
+import { TemplateCategoryType } from "@webthing/registry";
 
 // This file will eventually be compiled into a package.json by webthing cli
 module.exports = {

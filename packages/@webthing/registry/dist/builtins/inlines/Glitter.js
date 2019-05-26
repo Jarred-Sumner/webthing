@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/styled-base", "../../../registry"], factory);
+    define(["exports", "@emotion/styled-base", "../../"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/styled-base"), require("../../../registry"));
+    factory(exports, require("@emotion/styled-base"), require("../../"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.styledBase, global.registry);
+    factory(mod.exports, global.styledBase, global._);
     global.Glitter = mod.exports;
   }
-})(this, function (_exports, _styledBase, _registry) {
+})(this, function (_exports, _styledBase, _) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -29,11 +29,11 @@
     label: "GlitterComponent"
   })("background:linear-gradient(transparent,transparent),url(https://storage.googleapis.com/webthing-public/Glitter.gif) repeat 100px 20px;-webkit-background-clip:text !important;-webkit-text-fill-color:transparent !important;@media not all and (min-resolution:0.001dpcm){@media{display:inline-block;}}color:", function (props) {
     return props.color || "pink";
-  }, ";letter-spacing:1px;text-decoration:none;" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9idWlsdGlucy9pbmxpbmVzL0dsaXR0ZXIudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU1vQyIsImZpbGUiOiIuLi8uLi8uLi9zcmMvYnVpbHRpbnMvaW5saW5lcy9HbGl0dGVyLnRzeCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBHbGl0dGVyQXNzZXQxeCBmcm9tIFwiQHdlYnRoaW5nL3JlZ2lzdHJ5L2Fzc2V0cy9pbmxpbmVzL0dsaXR0ZXIucG5nXCI7XG5pbXBvcnQgR2xpdHRlckFzc2V0MnggZnJvbSBcIkB3ZWJ0aGluZy9yZWdpc3RyeS9hc3NldHMvaW5saW5lcy9HbGl0dGVyQDJ4LnBuZ1wiO1xuaW1wb3J0IEdsaXR0ZXJBc3NldDN4IGZyb20gXCJAd2VidGhpbmcvcmVnaXN0cnkvYXNzZXRzL2lubGluZXMvR2xpdHRlckAzeC5wbmdcIjtcbmltcG9ydCBzdHlsZWQgZnJvbSBcIkBlbW90aW9uL3N0eWxlZFwiO1xuaW1wb3J0IHsgQ2F0ZWdvcnlUeXBlIH0gZnJvbSBcIi4uLy4uLy4uL3JlZ2lzdHJ5XCI7XG5cbmNvbnN0IEdsaXR0ZXJDb21wb25lbnQgPSBzdHlsZWQuc3BhbmBcbiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KHRyYW5zcGFyZW50LCB0cmFuc3BhcmVudCksXG4gICAgdXJsKGh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS93ZWJ0aGluZy1wdWJsaWMvR2xpdHRlci5naWYpIHJlcGVhdCAxMDBweFxuICAgICAgMjBweDtcbiAgLXdlYmtpdC1iYWNrZ3JvdW5kLWNsaXA6IHRleHQgIWltcG9ydGFudDtcbiAgLXdlYmtpdC10ZXh0LWZpbGwtY29sb3I6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG5cbiAgQG1lZGlhIG5vdCBhbGwgYW5kIChtaW4tcmVzb2x1dGlvbjogMC4wMDFkcGNtKSB7XG4gICAgQG1lZGlhIHtcbiAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICB9XG4gIH1cblxuICBjb2xvcjogJHtwcm9wcyA9PiBwcm9wcy5jb2xvciB8fCBcInBpbmtcIn07XG4gIGxldHRlci1zcGFjaW5nOiAxcHg7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbmA7XG5cbmV4cG9ydCBjb25zdCBHbGl0dGVyID0ge1xuICB0aXRsZTogXCJHbGl0dGVyIHRleHRcIixcbiAgZGVzY3JpcHRpb246IFwiSXQgZ2V0cyBldmVyeXdoZXJlLlwiLFxuICBjYXRlZ29yeTogQ2F0ZWdvcnlUeXBlLnRleHQsXG4gIGlkOiBcIkB3ZWJ0aGluZy9nbGl0dGVyXCIsXG4gIHNjcmVlbnNob3Q6IHtcbiAgICBcIjF4XCI6IEdsaXR0ZXJBc3NldDF4LFxuICAgIFwiMnhcIjogR2xpdHRlckFzc2V0MngsXG4gICAgXCIzeFwiOiBHbGl0dGVyQXNzZXQzeFxuICB9LFxuICBDb21wb25lbnQ6IEdsaXR0ZXJDb21wb25lbnRcbn07XG5cbmV4cG9ydCBkZWZhdWx0IEdsaXR0ZXI7XG4iXX0= */"));
+  }, ";letter-spacing:1px;text-decoration:none;" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9idWlsdGlucy9pbmxpbmVzL0dsaXR0ZXIudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU1vQyIsImZpbGUiOiIuLi8uLi8uLi9zcmMvYnVpbHRpbnMvaW5saW5lcy9HbGl0dGVyLnRzeCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBHbGl0dGVyQXNzZXQxeCBmcm9tIFwiLi4vLi4vYXNzZXRzL2lubGluZXMvR2xpdHRlci5wbmdcIjtcbmltcG9ydCBHbGl0dGVyQXNzZXQyeCBmcm9tIFwiLi4vLi4vYXNzZXRzL2lubGluZXMvR2xpdHRlckAyeC5wbmdcIjtcbmltcG9ydCBHbGl0dGVyQXNzZXQzeCBmcm9tIFwiLi4vLi4vYXNzZXRzL2lubGluZXMvR2xpdHRlckAzeC5wbmdcIjtcbmltcG9ydCBzdHlsZWQgZnJvbSBcIkBlbW90aW9uL3N0eWxlZFwiO1xuaW1wb3J0IHsgQ2F0ZWdvcnlUeXBlIH0gZnJvbSBcIi4uLy4uL1wiO1xuXG5jb25zdCBHbGl0dGVyQ29tcG9uZW50ID0gc3R5bGVkLnNwYW5gXG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCh0cmFuc3BhcmVudCwgdHJhbnNwYXJlbnQpLFxuICAgIHVybChodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vd2VidGhpbmctcHVibGljL0dsaXR0ZXIuZ2lmKSByZXBlYXQgMTAwcHhcbiAgICAgIDIwcHg7XG4gIC13ZWJraXQtYmFja2dyb3VuZC1jbGlwOiB0ZXh0ICFpbXBvcnRhbnQ7XG4gIC13ZWJraXQtdGV4dC1maWxsLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuXG4gIEBtZWRpYSBub3QgYWxsIGFuZCAobWluLXJlc29sdXRpb246IDAuMDAxZHBjbSkge1xuICAgIEBtZWRpYSB7XG4gICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgfVxuICB9XG5cbiAgY29sb3I6ICR7cHJvcHMgPT4gcHJvcHMuY29sb3IgfHwgXCJwaW5rXCJ9O1xuICBsZXR0ZXItc3BhY2luZzogMXB4O1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG5gO1xuXG5leHBvcnQgY29uc3QgR2xpdHRlciA9IHtcbiAgdGl0bGU6IFwiR2xpdHRlciB0ZXh0XCIsXG4gIGRlc2NyaXB0aW9uOiBcIkl0IGdldHMgZXZlcnl3aGVyZS5cIixcbiAgY2F0ZWdvcnk6IENhdGVnb3J5VHlwZS50ZXh0LFxuICBpZDogXCJAd2VidGhpbmcvZ2xpdHRlclwiLFxuICBzY3JlZW5zaG90OiB7XG4gICAgXCIxeFwiOiBHbGl0dGVyQXNzZXQxeCxcbiAgICBcIjJ4XCI6IEdsaXR0ZXJBc3NldDJ4LFxuICAgIFwiM3hcIjogR2xpdHRlckFzc2V0M3hcbiAgfSxcbiAgQ29tcG9uZW50OiBHbGl0dGVyQ29tcG9uZW50XG59O1xuXG5leHBvcnQgZGVmYXVsdCBHbGl0dGVyO1xuIl19 */"));
   var Glitter = {
     title: "Glitter text",
     description: "It gets everywhere.",
-    category: _registry.CategoryType.text,
+    category: _.CategoryType.text,
     id: "@webthing/glitter",
     screenshot: {
       "1x": GlitterAsset1x,

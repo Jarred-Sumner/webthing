@@ -1,14 +1,15 @@
-import FancyHeadingAsset1x from "@webthing/registry/assets/blocks/FancyHeading.png";
-import FancyHeadingAsset2x from "@webthing/registry/assets/blocks/FancyHeading@2x.png";
-import FancyHeadingAsset3x from "@webthing/registry/assets/blocks/FancyHeading@3x.png";
+import FancyHeadingAsset1x from "../../assets/blocks/FancyHeading.png";
+import FancyHeadingAsset2x from "../../assets/blocks/FancyHeading@2x.png";
+import FancyHeadingAsset3x from "../../assets/blocks/FancyHeading@3x.png";
 import styled from "@emotion/styled";
 import tinycolor from "tinycolor2";
 import {
   CategoryType,
   BackgroundProp,
   ColorProp,
-  AlignProp
-} from "../../../registry";
+  AlignProp,
+  EditableProps
+} from "../../";
 
 type FancyHeadingProps = {
   background?: BackgroundProp;

@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "react", "../registry", "react-is", "lodash"], factory);
+    define(["exports", "@emotion/core", "react", "./index", "react-is", "lodash"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("react"), require("../registry"), require("react-is"), require("lodash"));
+    factory(exports, require("@emotion/core"), require("react"), require("./index"), require("react-is"), require("lodash"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global.react, global.registry, global.reactIs, global.lodash);
+    factory(mod.exports, global.core, global.react, global.index, global.reactIs, global.lodash);
     global.RegistryContext = mod.exports;
   }
-})(this, function (_exports, _core, React, _registry, _reactIs, _lodash) {
+})(this, function (_exports, _core, React, _index, _reactIs, _lodash) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -112,7 +112,7 @@
   _exports.RegistryContext = RegistryContext;
 
   var isVoid = function isVoid(manifest) {
-    return !!manifest.isVoid || manifest.category === _registry.CategoryType.embed;
+    return !!manifest.isVoid || manifest.category === _index.CategoryType.embed;
   };
 
   _exports.isVoid = isVoid;
@@ -244,7 +244,7 @@
       isRemote: isRemote,
       multiLine: multiLine || false,
       isDevelopment: isDevelopment,
-      isVoid: !!([_registry.CategoryType.embed, _registry.CategoryType.media].includes(category) || isVoid),
+      isVoid: !!([_index.CategoryType.embed, _index.CategoryType.media].includes(category) || isVoid),
       placeholder: placeholder,
       Component: Component,
       EditorComponent: EditorComponent,

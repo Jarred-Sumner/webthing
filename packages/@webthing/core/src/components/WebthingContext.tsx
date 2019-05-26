@@ -1,31 +1,33 @@
 import * as React from "react";
-import { ComponentManifestMap } from "../registry/RegistryContext";
 
 export type PageType = "index" | "show" | "editor" | null;
 export type EnvironmentType = "server" | "client";
 
 export type BlogComponentProps = {
   blog: Blog;
-  children: React.ReactChild;
+  children: React.ReactNode;
   pageType: PageType;
 };
 
 export type BlogPostProps = {
   pageType: PageType;
   post: Post;
-  children: React.ReactChild;
+  children: React.ReactNode;
   environment: EnvironmentType;
 };
+
+export type BlogComponentType = React.ComponentType<BlogComponentProps>;
+export type BlogPostComponentType = React.ComponentType<BlogPostProps>;
 
 export type Template = {
   styles: string;
   Components: {
-    Blocks: ComponentManifestMap;
-    Inlines: ComponentManifestMap;
+    Blocks: any;
+    Inlines: any;
   };
 
-  Blog: React.ElementType<BlogComponentProps>;
-  BlogPost: React.ElementType<BlogPostProps>;
+  Blog: BlogComponentType;
+  BlogPost: BlogPostComponentType;
 };
 
 export type Blog = {
@@ -62,13 +64,6 @@ export type Post = {
   blog: Blog;
 };
 
-export type BlogComponentType = React.ComponentType<
-  WebthingContextInterface & { children: React.ReactNode }
->;
-export type BlogPostComponentType = React.ComponentType<
-  WebthingContextInterface & { post: Post; children?: React.ReactNode }
->;
-
 export type WebthingContextInterface = {
   blog: Blog;
   pageType: PageType;
@@ -80,6 +75,6 @@ export type WebthingContextInterface = {
   BlogPostComponent: BlogPostComponentType;
 };
 
-export const WebthingContext = React.createContext<WebthingContextInterface | null>(
+export const WebthingContext = React.createContext<WebthingContextInterface>(
   null
 );

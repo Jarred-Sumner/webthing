@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import HighlightAsset1x from "@webthing/registry/assets/inlines/Highlight.png";
-import HighlightAsset2x from "@webthing/registry/assets/inlines/Highlight@2x.png";
-import HighlightAsset3x from "@webthing/registry/assets/inlines/Highlight@3x.png";
+import HighlightAsset1x from "../../assets/inlines/Highlight.png";
+import HighlightAsset2x from "../../assets/inlines/Highlight@2x.png";
+import HighlightAsset3x from "../../assets/inlines/Highlight@3x.png";
 import { EditableProps } from "../../EditableProps";
-import { CategoryType } from "../../../registry";
+import { CategoryType } from "../../";
 import tinycolor from "tinycolor2";
 
 const PRESET_COLORS = {

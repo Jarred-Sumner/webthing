@@ -109,10 +109,3 @@ export {
   normalizeBlock,
   isVoid
 } from "./RegistryContext";
-
-export {
-  getModule,
-  loadScript,
-  loadAndEvalScript,
-  ComponentLoader
-} from "./ComponentLoader";

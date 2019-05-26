@@ -41,7 +41,7 @@ export const loadAndEvalScript = (url: string, moduleName: string) => {
 type Props = {
   moduleName: string;
   innerRef: Function | React.Ref<any>;
-  children: React.ReactChild;
+  children: React.ReactNode;
   src: string;
   componentProps: Object;
 
