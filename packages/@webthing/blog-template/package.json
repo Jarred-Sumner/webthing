@@ -13,7 +13,7 @@
     "dist"
   ],
   "dependencies": {
-    "@webthing/cli": "3.3.11",
+    "@webthing/cli": "3.3.13",
     "@webthing/core": "3.3.5",
     "@webthing/registry": "3.3.7",
     "react-headroom": "latest"
@@ -109,5 +109,5 @@
     "webpack-permissions-plugin": "^1.0.3",
     "yargs": "^13.2.2"
   },
-  "version": "3.3.11"
+  "version": "3.3.13"
 }

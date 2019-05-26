@@ -2,6 +2,18 @@
   "name": "@webthing/core",
   "entries": [
     {
+      "version": "3.3.13",
+      "tag": "@webthing/core_v3.3.13",
+      "date": "Sun, 26 May 2019 04:14:54 GMT",
+      "comments": {}
+    },
+    {
+      "version": "3.3.12",
+      "tag": "@webthing/core_v3.3.12",
+      "date": "Sun, 26 May 2019 04:13:48 GMT",
+      "comments": {}
+    },
+    {
       "version": "3.3.11",
       "tag": "@webthing/core_v3.3.11",
       "date": "Sun, 26 May 2019 04:10:52 GMT",
