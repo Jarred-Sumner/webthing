@@ -26,7 +26,8 @@
   var FancyHeadingAsset2x = "https://codeblog-public.storage.googleapis.com/FancyHeading@2x.png";
   var FancyHeadingAsset3x = "https://codeblog-public.storage.googleapis.com/FancyHeading@3x.png";
   var FancyHeadingComponent = (0, _styledBase["default"])("div", {
-    target: "e1lc9uyk0"
+    target: "e1lc9uyk0",
+    label: "FancyHeadingComponent"
   })("box-sizing:content-box;margin-left:calc((100vw - var(--blog-post-width)) / -2);margin-right:calc((100vw - var(--blog-post-width)) / -2);padding-left:calc((100vw - var(--blog-post-width)) / 2);padding-right:calc((100vw - var(--blog-post-width)) / 2);background-size:100vw auto;font-size:1.75em;font-family:var(--headings-font);text-align:center;background:", function (props) {
     return props.background || "var(--text-color)";
   }, ";width:100%;color:", function (props) {

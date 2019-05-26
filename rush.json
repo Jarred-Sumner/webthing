@@ -176,7 +176,7 @@
      * you might configure your system's trigger to look for a special string such as "[skip-ci]"
      * in the commit message, and then customize Rush's message to contain that string.
      */
-    // "versionBumpCommitMessage": "Applying package updates. [skip-ci]"
+    "versionBumpCommitMessage": "Bump version"
   },
 
   "repository": {
@@ -195,7 +195,7 @@
      * your PR branch, and in this situation "rush change" will also automatically invoke "git fetch"
      * to retrieve the latest activity for the remote master branch.
      */
-    "url": "https://github.com/codeblog/codeblog"
+    "url": "git@github.com:Jarred-Sumner/webthing.git"
   },
 
   /**

@@ -1,6 +1,6 @@
 {
   "name": "@webthing/registry",
-  "version": "3.3.13",
+  "version": "3.3.14",
   "browser": "dist/index.js",
   "main": "dist/index.js",
   "license": "MIT",
