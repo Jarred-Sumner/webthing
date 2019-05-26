@@ -1,0 +1,14 @@
+{
+  "name": "@{{username}}/{{name}}",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "@{{username}}",
+  "main": "./dist/template",
+  "scripts": {
+    "dev": "{{bin}} template-dev .",
+    "publish": "{{bin}} template-publish ."
+  },
+  "dependencies": {
+    "@webthing/core": "{{webthingVersion}}"
+  }
+}

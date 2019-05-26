@@ -1,0 +1,14 @@
+{
+  "name": "@webthing/blog-template",
+  "main": "./dist/template",
+  "scripts": {
+    "dev": "webthing-dev template-dev .",
+    "publish": "webthing template-publish ."
+  },
+  "dependencies": {
+    "@webthing/core": "latest",
+    "@webthing/cli": "latest",
+    "react-headroom": "latest",
+    "@webthing/registry": "latest"
+  }
+}

@@ -1,0 +1,65 @@
+# Webthing CLI
+
+<a href="https://jarredsumner.com/codeblog-cli">
+  <img width="1236" alt="Untitled" src="https://user-images.githubusercontent.com/709451/58215499-023a3180-7caf-11e9-8509-7ab1321392f0.png">
+</a>
+
+**[Read this on Webthing](https://jarredsumner.com/codeblog-cli)**
+
+The Webthing CLI lets you write React.js components and use them on Webthing. When you publish a component on Webthing, anyone else can use it immediately.
+
+Code from your local development environment and debug/test it on https://webthi.ng/write. Webthing will automatically reload your component as you edit it in your local text editor.
+
+When you're ready to show it to other people, run `webthing publish` and other people will be able to see and use your component.
+
+Publishing components on Webthing is a really easy way to make stuff and show people.
+
+### Installation
+
+Before we get started, you'll need to you have Node.js (v8+) installed.
+
+To install the CLI, run the following command in your terminal
+
+```
+npm install -g webthing
+```
+
+## webthing new
+
+```
+webthing new HelloWebthing
+```
+
+After you enter a filename, this will create two files in the current directory:
+
+- `HelloWebthing.js`
+
+- `HelloWebthing.package.js`
+
+The first file is your code. The second file is the metadata required for Webthing to know how to use your component. You might not need to mess with the second file.
+
+Immediately after creating the files, it will open the files in your text editor and then run webthing dev for you, kicking off the development server.
+
+## webthing dev
+
+To launch the dev server, run this command:
+
+```
+webthing dev
+```
+
+This launches a dev server with instant code reloading. You develop in your local code editor, and it shows up on https://webthi.ng/write.
+
+Note: if you don't publish your components, they won't show up for anyone other than you.
+
+## webthing publish
+
+To publish your components, run this command:
+
+```
+webthing publish HelloWebthing
+```
+
+This will make your component show up on search and show your name as the author.
+
+The source code for your component will be published on GitHub. For example, [here's the source code](https://github.com/webthing/registry/tree/master/packages/%40jarred/code-snippet) for the code snippet component.

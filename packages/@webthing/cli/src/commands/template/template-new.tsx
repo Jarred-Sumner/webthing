@@ -1,0 +1,1 @@
+export { newTemplateCommand } from "../new";
