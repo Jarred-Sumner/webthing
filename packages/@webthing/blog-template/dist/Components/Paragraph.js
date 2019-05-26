@@ -22,8 +22,7 @@
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
   var Paragraph = (0, _styledBase["default"])("p", {
-    target: "e19trnp30",
-    label: "Paragraph"
+    target: "e19trnp30"
   })(process.env.NODE_ENV === "production" ? {
     name: "e5l2yn",
     styles: "display:block;margin-block-start:1em;margin-block-end:1em;margin-inline-start:0px;margin-inline-end:0px;line-height:1.6;font-family:var(--body-font);"

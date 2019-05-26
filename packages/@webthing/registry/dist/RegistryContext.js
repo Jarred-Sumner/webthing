@@ -305,17 +305,38 @@
   function (_React$PureComponent) {
     _inherits(RegistryProvider, _React$PureComponent);
 
-    function RegistryProvider(props) {
+    function RegistryProvider(_props) {
       var _this;
 
       _classCallCheck(this, RegistryProvider);
 
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(RegistryProvider).call(this, props));
+      _this = _possibleConstructorReturn(this, _getPrototypeOf(RegistryProvider).call(this, _props));
+
+      _defineProperty(_assertThisInitialized(_this), "resetState", function () {
+        _this.setState(_this.getInitialState(_this.props));
+      });
+
+      _defineProperty(_assertThisInitialized(_this), "getInitialState", function (props) {
+        var blocks = _objectSpread({}, props.initialBlocks);
+
+        var inlines = _objectSpread({}, props.initialInlines);
+
+        var stateWithoutContext = {
+          blocks: blocks,
+          inlines: inlines,
+          template: props.template,
+          schema: computeSchema(blocks, inlines)
+        };
+        return Object.assign(stateWithoutContext, {
+          contextValue: makeContextValue(stateWithoutContext, _this.handleChangeBlocks, _this.handleChangeInlines, _this.handleInsert, _this.handleChangeDevelopmentComponents, props.template)
+        });
+      });
 
       _defineProperty(_assertThisInitialized(_this), "handleChangeBlocks", function (blocks) {
         var stateWithoutContext = {
           blocks: _objectSpread({}, blocks),
           inlines: _this.state.inlines,
+          template: _this.props.template,
           schema: computeSchema(blocks, _this.state.inlines)
         };
 
@@ -375,6 +396,7 @@
         var stateWithoutContext = {
           inlines: _inlines,
           blocks: _blocks,
+          template: _this.props.template,
           schema: computeSchema(_blocks, _inlines)
         };
 
@@ -422,6 +444,7 @@
         var stateWithoutContext = {
           inlines: __inlines,
           blocks: __blocks,
+          template: _this.props.template,
           schema: computeSchema(__blocks, __inlines)
         };
 
@@ -434,6 +457,7 @@
         var stateWithoutContext = {
           inlines: _objectSpread({}, inlines),
           blocks: _this.state.blocks,
+          template: _this.props.template,
           schema: computeSchema(_this.state.blocks, inlines)
         };
 
@@ -442,24 +466,22 @@
         }));
       });
 
-      var _blocks2 = _objectSpread({}, props.initialBlocks);
-
-      var _inlines2 = _objectSpread({}, props.initialInlines);
-
-      var _stateWithoutContext = {
-        blocks: _blocks2,
-        inlines: _inlines2,
-        schema: computeSchema(_blocks2, _inlines2)
-      };
-      _this.state = Object.assign(_stateWithoutContext, {
-        contextValue: makeContextValue(_stateWithoutContext, _this.handleChangeBlocks, _this.handleChangeInlines, _this.handleInsert, _this.handleChangeDevelopmentComponents, _this.props.template)
-      });
+      _this.state = _this.getInitialState(_props);
       return _this;
     }
 
     _createClass(RegistryProvider, [{
+      key: "componentDidUpdate",
+      value: function componentDidUpdate(prevProps) {
+        if (prevProps.template !== this.props.template) {
+          console.log("Received new template");
+          this.resetState();
+        }
+      }
+    }, {
       key: "render",
       value: function render() {
+        console.log(this.state.contextValue);
         return (0, _core.jsx)(RegistryContext.Provider, {
           value: this.state.contextValue
         }, this.props.children);
@@ -470,4 +492,13 @@
   }(React.PureComponent);
 
   _exports.RegistryProvider = RegistryProvider;
+
+  _defineProperty(RegistryProvider, "defaultProps", {
+    template: {
+      Components: {
+        Inlines: {},
+        Blocks: {}
+      }
+    }
+  });
 });

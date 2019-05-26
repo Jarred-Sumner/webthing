@@ -9,13 +9,12 @@
     "build-js": "NODE_ENV=development babel src -x .js,.tsx,.ts -d dist --verbose",
     "build": "rimraf dist && yarn build-css && yarn build-js"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "dependencies": {
     "@webthing/cli": "3.3.13",
     "@webthing/core": "3.3.5",
     "@webthing/registry": "3.3.7",
+    "reading-time": "latest",
     "react-headroom": "latest"
   },
   "devDependencies": {

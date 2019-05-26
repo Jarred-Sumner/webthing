@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "./.."], factory);
+    define(["exports", "@webthing/core"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("./.."));
+    factory(exports, require("@webthing/core"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global._);
+    factory(mod.exports, global.core);
     global.templatePackage = mod.exports;
   }
-})(this, function (_exports, _) {
+})(this, function (_exports, _core) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -22,9 +22,9 @@
 
   function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-  var BlockTypes = _.registry.BlockTypes,
-      InlineTypes = _.registry.InlineTypes,
-      TemplateCategoryType = _.registry.TemplateCategoryType;
+  var BlockTypes = _core.registry.BlockTypes,
+      InlineTypes = _core.registry.InlineTypes,
+      TemplateCategoryType = _core.registry.TemplateCategoryType;
   var _default = {
     id: "@webthing/blog-template",
     title: "Blog",

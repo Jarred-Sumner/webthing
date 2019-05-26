@@ -31,8 +31,7 @@
     yellow: "#ffffcc"
   };
   var HighlightComponent = (0, _styledBase["default"])("span", {
-    target: "e12ftqrn0",
-    label: "HighlightComponent"
+    target: "e12ftqrn0"
   })("border-radius:5px;padding-left:0;padding-right:0;transition:background-color 0.1s linear;background-color:", function (props) {
     return props.color;
   }, ";color:", function (props) {

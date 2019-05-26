@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "react", "classnames", "./.."], factory);
+    define(["exports", "@emotion/core", "react", "classnames", "@webthing/core"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("react"), require("classnames"), require("./.."));
+    factory(exports, require("@emotion/core"), require("react"), require("classnames"), require("@webthing/core"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global.react, global.classnames, global._);
+    factory(mod.exports, global.core, global.react, global.classnames, global.core);
     global.BlogPost = mod.exports;
   }
-})(this, function (_exports, _core, _react, _classnames, _) {
+})(this, function (_exports, _core, _react, _classnames, _core2) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -38,7 +38,7 @@
         "BlogPost--show": pageType === "show",
         "BlogPost--editor": pageType === "editor"
       })
-    }, (0, _core.jsx)(_.BlogPostSEOTags, {
+    }, (0, _core.jsx)(_core2.BlogPostSEOTags, {
       post: post
     }), (0, _core.jsx)("div", {
       className: "BlogPost-Body"
@@ -48,7 +48,7 @@
 
 
   var BlogPostContainer = function BlogPostContainer(props) {
-    return (0, _core.jsx)(_.Webthing, null, function (_ref2) {
+    return (0, _core.jsx)(_core2.Webthing, null, function (_ref2) {
       var pageType = _ref2.pageType,
           environment = _ref2.environment,
           post = _ref2.post;

@@ -118,6 +118,7 @@ type StateWithoutContext = {
   blocks: ComponentManifestMap;
   inlines: ComponentManifestMap;
   schema: MiniSlateSchema;
+  template: Template;
 };
 
 type State = StateWithoutContext & {
@@ -344,9 +345,26 @@ export function normalizeInline({
 }
 
 export class RegistryProvider extends React.PureComponent<Props, State> {
+  static defaultProps = {
+    template: {
+      Components: {
+        Inlines: {},
+        Blocks: {}
+      }
+    }
+  };
+
   constructor(props: Props) {
     super(props);
 
+    this.state = this.getInitialState(props);
+  }
+
+  resetState = () => {
+    this.setState(this.getInitialState(this.props));
+  };
+
+  getInitialState = props => {
     const blocks = {
       ...props.initialBlocks
     };
@@ -357,25 +375,34 @@ export class RegistryProvider extends React.PureComponent<Props, State> {
     const stateWithoutContext = {
       blocks,
       inlines,
+      template: props.template,
       schema: computeSchema(blocks, inlines)
     };
 
-    this.state = Object.assign(stateWithoutContext, {
+    return Object.assign(stateWithoutContext, {
       contextValue: makeContextValue(
         stateWithoutContext,
         this.handleChangeBlocks,
         this.handleChangeInlines,
         this.handleInsert,
         this.handleChangeDevelopmentComponents,
-        this.props.template
+        props.template
       )
     });
+  };
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.template !== this.props.template) {
+      console.log("Received new template");
+      this.resetState();
+    }
   }
 
   handleChangeBlocks = (blocks: ComponentManifestMap) => {
     const stateWithoutContext = {
       blocks: { ...blocks },
       inlines: this.state.inlines,
+      template: this.props.template,
       schema: computeSchema(blocks, this.state.inlines)
     };
 
@@ -425,6 +452,7 @@ export class RegistryProvider extends React.PureComponent<Props, State> {
     const stateWithoutContext = {
       inlines: _inlines,
       blocks: _blocks,
+      template: this.props.template,
       schema: computeSchema(_blocks, _inlines)
     };
 
@@ -475,6 +503,7 @@ export class RegistryProvider extends React.PureComponent<Props, State> {
     const stateWithoutContext = {
       inlines: __inlines,
       blocks: __blocks,
+      template: this.props.template,
       schema: computeSchema(__blocks, __inlines)
     };
 
@@ -496,6 +525,7 @@ export class RegistryProvider extends React.PureComponent<Props, State> {
     const stateWithoutContext = {
       inlines: { ...inlines },
       blocks: this.state.blocks,
+      template: this.props.template,
       schema: computeSchema(this.state.blocks, inlines)
     };
 
@@ -514,6 +544,7 @@ export class RegistryProvider extends React.PureComponent<Props, State> {
   };
 
   render() {
+    console.log(this.state.contextValue);
     return (
       <RegistryContext.Provider value={this.state.contextValue}>
         {this.props.children}

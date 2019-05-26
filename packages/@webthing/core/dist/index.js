@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "react", "react-head", "./components/Webthing", "./components/WebthingContext", "react-is"], factory);
+    define(["exports", "@emotion/core", "react", "react-head", "./components/Webthing", "./components/WebthingContext", "react-is", "./components/SEOTags"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("react"), require("react-head"), require("./components/Webthing"), require("./components/WebthingContext"), require("react-is"));
+    factory(exports, require("@emotion/core"), require("react"), require("react-head"), require("./components/Webthing"), require("./components/WebthingContext"), require("react-is"), require("./components/SEOTags"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global.react, global.reactHead, global.Webthing, global.WebthingContext, global.reactIs);
+    factory(mod.exports, global.core, global.react, global.reactHead, global.Webthing, global.WebthingContext, global.reactIs, global.SEOTags);
     global.index = mod.exports;
   }
-})(this, function (_exports, _core, React, _reactHead, _Webthing, _WebthingContext, _reactIs) {
+})(this, function (_exports, _core, React, _reactHead, _Webthing, _WebthingContext, _reactIs, _SEOTags) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -80,6 +80,36 @@
     enumerable: true,
     get: function get() {
       return _WebthingContext.Template;
+    }
+  });
+  Object.defineProperty(_exports, "BlogPostSEOTags", {
+    enumerable: true,
+    get: function get() {
+      return _SEOTags.BlogPostSEOTags;
+    }
+  });
+  Object.defineProperty(_exports, "BlogSEOTags", {
+    enumerable: true,
+    get: function get() {
+      return _SEOTags.BlogSEOTags;
+    }
+  });
+  Object.defineProperty(_exports, "Title", {
+    enumerable: true,
+    get: function get() {
+      return _SEOTags.Title;
+    }
+  });
+  Object.defineProperty(_exports, "Meta", {
+    enumerable: true,
+    get: function get() {
+      return _SEOTags.Meta;
+    }
+  });
+  Object.defineProperty(_exports, "Link", {
+    enumerable: true,
+    get: function get() {
+      return _SEOTags.Link;
     }
   });
   _exports["default"] = _exports.Webthing = _exports.WebthingPostEditor = _exports.WebthingIndexPage = _exports.WebthingPost = _exports.WebthingRoot = _exports.WebthingError = void 0;
@@ -170,6 +200,7 @@
     validateTemplate(template, false);
     var BlogComponent = template.Blog,
         BlogPostComponent = template.BlogPost;
+    console.log(BlogComponent);
     return (0, _core.jsx)(_reactHead.HeadProvider, {
       headTags: props.headTags
     }, (0, _core.jsx)(_Webthing.WebthingProvider, {

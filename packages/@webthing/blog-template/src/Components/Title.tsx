@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
 import BlogPostSubtitle from "../BlogPostSubtitle";
-import { WebthingContext, Post, PageType, registry } from "@webthing/core";
-
-const { AlignProp } = registry;
+import { WebthingContext, Post, PageType } from "@webthing/core";
+import { AlignProp } from "@webthing/registry";
 
 type TitleProps = {
   align?: AlignProp;

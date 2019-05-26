@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "react", "./..", "./BlogPost", "react-headroom"], factory);
+    define(["exports", "@emotion/core", "react", "@webthing/core", "./BlogPost", "react-headroom"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("react"), require("./.."), require("./BlogPost"), require("react-headroom"));
+    factory(exports, require("@emotion/core"), require("react"), require("@webthing/core"), require("./BlogPost"), require("react-headroom"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global.react, global._, global.BlogPost, global.reactHeadroom);
+    factory(mod.exports, global.core, global.react, global.core, global.BlogPost, global.reactHeadroom);
     global.Blog = mod.exports;
   }
-})(this, function (_exports, _core, _react, _, _BlogPost, _reactHeadroom) {
+})(this, function (_exports, _core, _react, _core2, _BlogPost, _reactHeadroom) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -34,7 +34,7 @@
       itemID: String(blog.id),
       itemType: "http://schema.org/Blog",
       className: "Blog"
-    }, (0, _core.jsx)(_.BlogSEOTags, {
+    }, (0, _core.jsx)(_core2.BlogSEOTags, {
       blog: blog
     }), (0, _core.jsx)(_reactHeadroom["default"], null, (0, _core.jsx)("div", {
       className: "BlogHeader"

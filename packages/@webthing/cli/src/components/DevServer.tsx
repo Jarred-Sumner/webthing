@@ -269,7 +269,8 @@ class RawDevServerComponent extends React.Component<{ cwd: string }, State> {
 
     server.get("/version", (_req, res) => {
       res.send({
-        version: getVersion()
+        version: getVersion(),
+        type: "component"
       });
     });
 

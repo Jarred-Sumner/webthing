@@ -17,7 +17,7 @@
       {
         "root": ["./"],
         "alias": {
-          "@webthing/core": "./"
+          "@webthing/cli": "./"
         }
       }
     ],
@@ -32,4 +32,3 @@
     "@babel/plugin-proposal-class-properties"
   ]
 }
-

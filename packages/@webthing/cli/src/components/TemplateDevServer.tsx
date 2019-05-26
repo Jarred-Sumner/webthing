@@ -121,7 +121,7 @@ class _DevComponentStatus extends React.Component<DevComponentProps> {
               <Box marginLeft={2}>
                 <Color gray>
                   <Text>
-                    {moment(component.component.lastUpdated).format("LTS")}
+                    {moment(component.template.lastUpdated).format("LTS")}
                   </Text>
                 </Color>
               </Box>
@@ -148,7 +148,7 @@ class _DevComponentStatus extends React.Component<DevComponentProps> {
               <Box marginLeft={2}>
                 <Color gray>
                   <Text>
-                    {moment(component.component.lastUpdated).format("LTS")}
+                    {moment(component.template.lastUpdated).format("LTS")}
                   </Text>
                 </Color>
               </Box>
@@ -220,12 +220,17 @@ class RawTemplateDevServerComponent extends React.Component<
     const { template } = this.props;
 
     const { srcPath, id } = template;
+    const {
+      existingPackageJSON: packageJSON,
+      result: manifest
+    } = template.registration.toJSON();
 
     return {
-      ...template.registration.toJSON(),
+      ...manifest,
+      id: packageJSON.name,
       isDevelopment: true,
       isRemote: true,
-      src: [srcPath, "/template.js"].join("/")
+      src: [this.tunnel.url, "template/dist", "template.js"].join("/")
     };
   };
 
@@ -263,7 +268,8 @@ class RawTemplateDevServerComponent extends React.Component<
 
     server.get("/version", (_req, res) => {
       res.send({
-        version: getVersion()
+        version: getVersion(),
+        type: "template"
       });
     });
 

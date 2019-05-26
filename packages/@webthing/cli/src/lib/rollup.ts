@@ -33,6 +33,7 @@ const BUNDLED_MODULES = [
   "react",
   "tinycolor2",
   "@webthing/core",
+  "@webthing/registry",
   "codeblog"
 ];
 
@@ -48,7 +49,8 @@ const GLOBAL_MODULES = {
   tinycolor2: "tinycolor2",
   codeblog: "@webthing/core",
   webthing: "@webthing/core",
-  ["@webthing/core"]: "@webthing/core"
+  ["@webthing/core"]: "@webthing/core",
+  ["@webthing/registry"]: "@webthing/registry"
 };
 
 const BABEL_RC = {
