@@ -3,6 +3,9 @@
   "name": "webthing",
   "scripts": {
     "predev": "rush update",
+    "bump": "rush version --bump -b master",
+    "deploy-publish": "rush publish --apply --publish --include-all -b master",
+    "deploy": "yarn bump && yarn deploy-publish",
     "dev-core": "cd packages/@webthing/core && yarn dev",
     "dev-registry": "cd packages/@webthing/registry && yarn dev",
     "dev-blog-template": "cd packages/@webthing/blog-template && yarn dev",
