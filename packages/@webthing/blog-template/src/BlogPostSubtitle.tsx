@@ -1,6 +1,5 @@
 import * as React from "react";
 import moment from "moment";
-import readingTime from "reading-time";
 
 const formatDateForEnvironment = date => {
   return moment(date).fromNow();
@@ -42,16 +41,6 @@ export const BlogPostSubtitle = ({ post }) => {
           status={post.status}
         />
       </a>
-
-      {post.text && (
-        <>
-          <div className="Separator Separator--small" />
-
-          <div className="ReadingTime">
-            {readingTime(String(post.text).trim()).text}
-          </div>
-        </>
-      )}
 
       {/* SEO stuff */}
       <meta itemProp="author.alternateName" content={post.author.subdomain} />

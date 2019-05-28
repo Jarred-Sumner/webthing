@@ -193,10 +193,6 @@
         Blocks = _ref3.blocks,
         schema = _ref3.schema;
     addAliases(Inlines, Blocks, template);
-    console.log({
-      Inlines: Inlines,
-      Blocks: Blocks
-    });
     return {
       Inlines: Inlines,
       Blocks: Blocks,
@@ -481,7 +477,6 @@
     }, {
       key: "render",
       value: function render() {
-        console.log(this.state.contextValue);
         return (0, _core.jsx)(RegistryContext.Provider, {
           value: this.state.contextValue
         }, this.props.children);

@@ -229,7 +229,6 @@ const makeContextValue = (
   template: Template
 ): RegistryContextType => {
   addAliases(Inlines, Blocks, template);
-  console.log({ Inlines, Blocks });
 
   return {
     Inlines,
@@ -544,7 +543,6 @@ export class RegistryProvider extends React.PureComponent<Props, State> {
   };
 
   render() {
-    console.log(this.state.contextValue);
     return (
       <RegistryContext.Provider value={this.state.contextValue}>
         {this.props.children}

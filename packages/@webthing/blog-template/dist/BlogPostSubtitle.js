@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "react", "moment", "reading-time"], factory);
+    define(["exports", "@emotion/core", "react", "moment"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("react"), require("moment"), require("reading-time"));
+    factory(exports, require("@emotion/core"), require("react"), require("moment"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global.react, global.moment, global.readingTime);
+    factory(mod.exports, global.core, global.react, global.moment);
     global.BlogPostSubtitle = mod.exports;
   }
-})(this, function (_exports, _core, React, _moment, _readingTime) {
+})(this, function (_exports, _core, React, _moment) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -19,7 +19,6 @@
   _exports["default"] = _exports.BlogPostSubtitle = _exports.PublishedTimetamp = void 0;
   React = _interopRequireWildcard(React);
   _moment = _interopRequireDefault(_moment);
-  _readingTime = _interopRequireDefault(_readingTime);
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -64,11 +63,7 @@
     }, (0, _core.jsx)(PublishedTimetamp, {
       publishedAt: post.publishedAt,
       status: post.status
-    })), post.text && (0, _core.jsx)(React.Fragment, null, (0, _core.jsx)("div", {
-      className: "Separator Separator--small"
-    }), (0, _core.jsx)("div", {
-      className: "ReadingTime"
-    }, (0, _readingTime["default"])(String(post.text).trim()).text)), (0, _core.jsx)("meta", {
+    })), (0, _core.jsx)("meta", {
       itemProp: "author.alternateName",
       content: post.author.subdomain
     }), (0, _core.jsx)("meta", {
