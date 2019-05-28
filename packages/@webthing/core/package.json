@@ -1,6 +1,6 @@
 {
   "name": "@webthing/core",
-  "version": "3.3.20",
+  "version": "3.3.21",
   "browser": "dist/index.js",
   "main": "dist/index.js",
   "license": "MIT",
