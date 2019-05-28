@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import * as React from "react";
 import BlogPostSubtitle from "../BlogPostSubtitle";
 import { WebthingContext, Post, PageType } from "@webthing/core";
 import { AlignProp } from "@webthing/registry";
@@ -62,20 +63,25 @@ const Header = styled.header`
 
 export const EditorTitle = H1;
 
+// Hook would be nicer...but i'm having issues with mkaing that work with SSR.
 export function Title(props: Partial<TitleProps>) {
-  const { pageType, post } = React.useContext(WebthingContext);
+  return (
+    <WebthingContext.Consumer>
+      {({ pageType, post }) => {
+        if (pageType === "editor") {
+          return <H1 {...props}>{props.children}</H1>;
+        } else {
+          return (
+            <Header>
+              <BlogPostSubtitle post={post} />
 
-  if (pageType === "editor") {
-    return <H1 {...props}>{props.children}</H1>;
-  } else {
-    return (
-      <Header>
-        <BlogPostSubtitle post={post} />
-
-        <a href={post.url}>
-          <H1 {...props}>{props.children}</H1>
-        </a>
-      </Header>
-    );
-  }
+              <a href={post.url}>
+                <H1 {...props}>{props.children}</H1>
+              </a>
+            </Header>
+          );
+        }
+      }}
+    </WebthingContext.Consumer>
+  );
 }

@@ -83,7 +83,7 @@ module.exports = {
               "transform-assets-import-to-string",
               {
                 baseDir: "",
-                baseUri: "http://webthing-public.storage.googleapis.com"
+                baseUri: "https://codeblog-public.storage.googleapis.com"
               }
             ],
             "@babel/plugin-proposal-class-properties",
