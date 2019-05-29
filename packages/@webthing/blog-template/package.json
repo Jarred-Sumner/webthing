@@ -9,14 +9,16 @@
     "build-js": "NODE_ENV=development babel src -x .js,.tsx,.ts -d dist --verbose",
     "build": "rimraf dist && yarn build-css && yarn build-js"
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "peerDependencies": {
     "@webthing/core": "3.3.5",
     "@webthing/registry": "3.3.7"
   },
-
   "devDependencies": {
-    "@webthing/cli": "3.3.23",
+    "@webthing/cli": "3.3.24",
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
@@ -107,5 +109,5 @@
     "webpack-permissions-plugin": "^1.0.3",
     "yargs": "^13.2.2"
   },
-  "version": "3.3.23"
+  "version": "3.3.24"
 }
