@@ -1,11 +1,11 @@
 import { Blocks, Inlines } from "./Components";
 import styles from "./styles.css";
+import { Blog } from "./Blog";
+import { BlogPost } from "./BlogPost";
 
 export const Components = { Blocks, Inlines };
 
-export { Blog } from "./Blog";
-export { BlogPost } from "./BlogPost";
-export { styles };
+export { styles, Blog, BlogPost };
 
 export default {
   Blog,

@@ -37,8 +37,8 @@
   };
   _exports.Components = Components;
   var _default = {
-    Blog: Blog,
-    BlogPost: BlogPost,
+    Blog: _Blog.Blog,
+    BlogPost: _BlogPost.BlogPost,
     styles: styles,
     Components: Components
   };
