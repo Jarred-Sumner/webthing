@@ -72,7 +72,7 @@ export const convertPackageJSToJSON = (
 
   const packageJS = {
     ...result,
-    publishConfig: { registry: "http://registry.webthi.ng/" },
+    publishConfig: { registry: "http://registry.webthing.co/" },
     main: `dist/${packageName}.js`,
     browser: `dist/${packageName}.js`,
     esm: `dist/${packageName}.esm.js`
@@ -112,7 +112,7 @@ export const convertTemplatePackageJSToJSON = (
       existingPackageJSON,
       result
     }),
-    publishConfig: { registry: "http://registry.webthi.ng/" },
+    publishConfig: { registry: "http://registry.webthing.co/" },
     main: `dist/template.js`,
     browser: `dist/template.js`,
     esm: `dist/template.esm.js`

@@ -11,7 +11,7 @@ import { HOME_DIR } from "./paths";
 
 const fetchWrapper = (jar: CookieJar) => fetchCookie(_fetch, jar);
 
-const PRODUCTION_HOSTNAME = "https://webthi.ng";
+const PRODUCTION_HOSTNAME = "https://webthing.co";
 const DEVELOPMENT_HOSTNAME = "http://localhost:3001";
 
 export const HOSTNAME =

@@ -22,7 +22,7 @@ type DevComponentProps = {
   cwd: string;
 };
 
-const PRODUCTION_HOSTNAME = "https://webthi.ng";
+const PRODUCTION_HOSTNAME = "https://webthing.co";
 const DEVELOPMENT_HOSTNAME = "http://localhost:3000";
 
 const HOSTNAME =
@@ -392,7 +392,7 @@ class RawTemplateDevServerComponent extends React.Component<
 
                     <Link url={EDITOR_URL}>
                       <Text>
-                        Open Webthing's editor at https://webthi.ng/write
+                        Open Webthing's editor at https://webthing.co/write
                       </Text>
                     </Link>
                   </Box>
