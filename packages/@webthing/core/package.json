@@ -12,10 +12,8 @@
     "build-js": "NODE_ENV=development babel src -x .js,.tsx,.ts -d dist --verbose",
     "build": "yarn build-js && yarn build-typescript"
   },
-  "files": [
-    "dist"
-  ],
-  "dependencies": {
+  "files": ["dist", "src"],
+  "peerDependencies": {
     "classnames": "^2.2.6",
     "emotion-theming": "^10.0.10",
     "lodash": "^4.17.11",

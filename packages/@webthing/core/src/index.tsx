@@ -85,8 +85,6 @@ export const WebthingPost = (props: WebthingPostProps) => {
 
   const { Blog: BlogComponent, BlogPost: BlogPostComponent } = template;
 
-  console.log(BlogComponent);
-
   return (
     <HeadProvider headTags={props.headTags}>
       <WebthingProvider

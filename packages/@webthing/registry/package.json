@@ -16,12 +16,8 @@
     "upload-assets-folder": "gsutil -m rsync  -r assets gs://codeblog-public",
     "build-assets": "yarn --silent copy-assets-folder && yarn --silent upload-assets-folder"
   },
-  "files": [
-    "dist",
-    "assets",
-    "static"
-  ],
-  "dependencies": {
+  "files": ["dist", "assets", "static", "src"],
+  "peerDependencies": {
     "classnames": "^2.2.6",
     "emotion-theming": "^10.0.10",
     "lodash": "^4.17.11",

@@ -1,6 +1,15 @@
-import * as Components from "./Components";
+import { Blocks, Inlines } from "./Components";
 import styles from "./styles.css";
+
+export const Components = { Blocks, Inlines };
 
 export { Blog } from "./Blog";
 export { BlogPost } from "./BlogPost";
-export { Components, styles };
+export { styles };
+
+export default {
+  Blog,
+  BlogPost,
+  styles,
+  Components
+};

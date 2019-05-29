@@ -200,7 +200,6 @@
     validateTemplate(template, false);
     var BlogComponent = template.Blog,
         BlogPostComponent = template.BlogPost;
-    console.log(BlogComponent);
     return (0, _core.jsx)(_reactHead.HeadProvider, {
       headTags: props.headTags
     }, (0, _core.jsx)(_Webthing.WebthingProvider, {
