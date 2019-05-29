@@ -82,14 +82,22 @@ const put = (path: string, options = {}) =>
 const deleteRequest = (path: string, options = {}) =>
   fetch(buildUrl(path), { ...options, method: "DELETE" });
 
-export const login = ({ email, password, options = {} }) => {
+export const login = ({ login_token, email, options }) => {
   return post("/sessions", {
     ...options,
     body: {
-      user: {
-        email,
-        password
-      }
+      login_token,
+      email
+    }
+  });
+};
+
+export const sendLoginLink = ({ email, options = {} }) => {
+  return post("/sessions/login_link", {
+    ...options,
+    body: {
+      email,
+      cli: true
     }
   });
 };

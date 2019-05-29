@@ -4,7 +4,7 @@ import TextInput from "ink-text-input";
 import Spinner from "ink-spinner";
 import Gradient from "ink-gradient";
 import BigText from "ink-big-text";
-import { login, isLoggedIn, getCurrentUser } from "../lib/api";
+import { login, isLoggedIn, getCurrentUser, sendLoginLink } from "../lib/api";
 import { WEBTHING_BIN } from "../lib/paths";
 
 type Props = {
@@ -13,9 +13,14 @@ type Props = {
 
 type State = {
   email: string;
-  password: string;
+  loginCode: string;
   message: string | null;
-  step: "email" | "password" | "login" | "success";
+  step:
+    | "email"
+    | "sendingLoginCode"
+    | "enterLoginCode"
+    | "verifyingLoginCode"
+    | "success";
 };
 
 export class LoginComponent extends React.Component<Props, State> {
@@ -24,20 +29,17 @@ export class LoginComponent extends React.Component<Props, State> {
 
     this.state = {
       email: "",
-      password: "",
+      loginCode: "",
       message: null,
       step: "email"
     };
   }
 
-  handleChangeEmail = email => this.setState({ email });
-  handleChangePassword = password => this.setState({ password });
-  handleFocusPassword = () => this.setState({ step: "password" });
-  handleLogin = () =>
-    this.setState({ step: "login" }, async () => {
+  handleSendLoginCode = () => {
+    this.setState({ step: "verifyingLoginCode" }, async () => {
       const response = await login({
         email: this.state.email,
-        password: this.state.password
+        login_token: this.state.loginCode
       });
 
       if (
@@ -52,16 +54,40 @@ export class LoginComponent extends React.Component<Props, State> {
         this.setState({
           message:
             (typeof response === "object" && response.message) ||
-            "Please enter your email/password and try again",
+            "Please enter the login code and try again",
           step: "email",
           email: "",
-          password: ""
+          loginCode: ""
+        });
+      }
+    });
+  };
+
+  handleChangeEmail = email => this.setState({ email });
+  handleChangeLoginCode = loginCode => this.setState({ loginCode });
+  handleFocusLoginCode = () => this.setState({ step: "enterLoginCode" });
+  handleGenerateLoginCode = () =>
+    this.setState({ step: "sendingLoginCode" }, async () => {
+      const response = await sendLoginLink({
+        email: this.state.email
+      });
+
+      if (typeof response === "object" && response.success) {
+        this.setState({ step: "enterLoginCode" });
+      } else {
+        this.setState({
+          message:
+            (typeof response === "object" && response.message) ||
+            "Please re-enter your email or username and try again",
+          step: "email",
+          email: "",
+          loginCode: ""
         });
       }
     });
 
   render() {
-    const { step, email, password, message } = this.state;
+    const { step, email, loginCode, message } = this.state;
 
     if (step === "email") {
       return (
@@ -78,7 +104,7 @@ export class LoginComponent extends React.Component<Props, State> {
           <Box>
             <Color blue>&gt;</Color> Enter your email:{" "}
             <TextInput
-              onSubmit={this.handleFocusPassword}
+              onSubmit={this.handleGenerateLoginCode}
               value={email}
               showCursor
               onChange={this.handleChangeEmail}
@@ -86,31 +112,44 @@ export class LoginComponent extends React.Component<Props, State> {
           </Box>
         </Box>
       );
-    } else if (step === "password") {
+    } else if (step === "sendingLoginCode") {
       return (
         <Box flexDirection="column">
-          {message ? (
-            <Color white>{message}</Color>
-          ) : (
-            <Gradient name="rainbow">
-              <Text>Login to webthing</Text>
-            </Gradient>
-          )}
           <Box>
-            <Text>
-              <Color blue>&gt;</Color> Enter your password:{" "}
-            </Text>
+            <Color gray>
+              <Spinner type="dots" />
+            </Color>
+            {" Sending login code..."}
+          </Box>
+        </Box>
+      );
+    } else if (step === "enterLoginCode") {
+      return (
+        <Box flexDirection="column">
+          {message && <Color white>{message}</Color>}
+          <Text>
+            We sent an email to{" "}
+            <Color blueBright bgBlackBright bold>
+              {email}
+            </Color>
+            . Please enter or copy paste the login code from the email.
+          </Text>
+          <Box marginTop={1}>
+            <Box>
+              <Text>
+                <Color gray>&gt;</Color> Login code:{" "}
+              </Text>
+            </Box>
             <TextInput
-              onSubmit={this.handleLogin}
-              value={password}
+              onSubmit={this.handleSendLoginCode}
+              value={loginCode}
               showCursor
-              mask="*"
-              onChange={this.handleChangePassword}
+              onChange={this.handleChangeLoginCode}
             />
           </Box>
         </Box>
       );
-    } else if (step === "login") {
+    } else if (step === "verifyingLoginCode") {
       return (
         <Box flexDirection="column">
           <Box>

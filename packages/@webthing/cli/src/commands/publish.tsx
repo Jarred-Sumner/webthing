@@ -54,6 +54,7 @@ const doPublishPackage = async (name: string, cwd: string) => {
   const { files, metadata } = await buildPackage(name, cwd);
   const tgzFile = await buildTGZ(files);
   const tgzStream = await saveTGZ(tgzFile, name, cwd);
+  console.error(chalk.gray("----"));
   const spinner = ora(`Uploading ${tgzFileName(name)} (public)`).start();
   try {
     const pkg = await uploadPackage({
@@ -62,22 +63,39 @@ const doPublishPackage = async (name: string, cwd: string) => {
       options: {}
     });
 
-    const secondsElapsed = ((new Date() - startTime) / 1000).toFixed(2);
+    if (typeof pkg === "object" && pkg.status === "live") {
+      const secondsElapsed = ((new Date() - startTime) / 1000).toFixed(2);
 
-    spinner.stopAndPersist({
-      symbol: chalk.green("√"),
-      text: ` Published ${name} in ${secondsElapsed}s`
-    });
+      spinner.stopAndPersist({
+        symbol: chalk.green("√"),
+        text: ` Published ${name} in ${secondsElapsed}s`
+      });
 
-    console.log(
-      emoji.get("sparkles"),
-      chalk.keyword("white")(`Now you can use ${name} in public pads`)
-    );
+      console.log(
+        emoji.get("sparkles"),
+        chalk.keyword("white")(`Now you can use ${name} in webthings`)
+      );
 
-    console.log(
-      emoji.get("hammer"),
-      chalk.keyword("gray")(`The source is on GitHub: ${pkg.github_url}`)
-    );
+      if (pkg.github_url) {
+        console.log(
+          emoji.get("hammer"),
+          chalk.keyword("gray")(`The source is on GitHub: ${pkg.github_url}`)
+        );
+      }
+    } else if (
+      typeof pkg === "object" &&
+      pkg.object === "error" &&
+      pkg.message
+    ) {
+      spinner.stopAndPersist({
+        symbol: chalk.red("X"),
+        text: ` Published failed`
+      });
+
+      console.error(chalk.red("> Error:"), chalk.bold(pkg.message.join("\n")));
+    } else {
+      console.error("Something went wrong. Please try again.");
+    }
 
     return pkg;
   } catch (exception) {

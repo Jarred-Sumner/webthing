@@ -69,15 +69,6 @@ module.exports = {
             "@babel/preset-react"
           ],
           plugins: [
-            [
-              "module-resolver",
-              {
-                root: ["./"],
-                alias: {
-                  "@webthing/cli": "./"
-                }
-              }
-            ],
             "babel-plugin-transform-css-import-to-string",
             [
               "transform-assets-import-to-string",

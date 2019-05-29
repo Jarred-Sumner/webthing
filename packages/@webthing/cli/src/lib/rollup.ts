@@ -191,7 +191,6 @@ export function buildConfig(
       input: exportType ? WEBTHING_ENTRY_NORMALIZER : _jsFilePath,
       plugins: pluginsConfig,
       inlineDynamicImports: true,
-      dynamicImport: true,
       external: BUNDLED_MODULES,
       output: [
         {
@@ -282,7 +281,6 @@ export function buildTemplateConfig(
       input: exportType ? WEBTHING_ENTRY_NORMALIZER : _jsFilePath,
       plugins: pluginsConfig,
       inlineDynamicImports: true,
-      dynamicImport: true,
       external: BUNDLED_MODULES,
       output: [
         {
