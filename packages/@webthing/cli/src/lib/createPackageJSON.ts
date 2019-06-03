@@ -8,22 +8,9 @@ import {
   templateOutputPath,
   templatePackageJSONPath
 } from "./packageUtils";
-import { WEBTHING_ROOT } from "./paths";
 
 const PACKAGE_BABEL_RC = {
-  plugins: [
-    [
-      require("babel-plugin-module-resolver"),
-      {
-        root: ["./"],
-        alias: {
-          "@webthing/core": WEBTHING_ROOT,
-          codeblog: WEBTHING_ROOT
-        }
-      }
-    ],
-    require("@babel/plugin-proposal-class-properties")
-  ],
+  plugins: [require("@babel/plugin-proposal-class-properties")],
   presets: [
     [
       require("@babel/preset-env"),
@@ -37,6 +24,18 @@ const PACKAGE_BABEL_RC = {
     require("@babel/preset-react")
   ]
 };
+
+const fakeRequire = (id: string) => {
+  if (id === "@webthing/registry") {
+    return require("@webthing/registry");
+  } else if (id === "@webthing/core") {
+    return require("@webthing/core");
+  } else {
+    return null;
+  }
+};
+
+Object.assign(fakeRequire, __non_webpack_require__);
 
 export const compilePackageJSFile = async (filepath: string) => {
   const { code } = await transformFileAsync(filepath, {
@@ -54,7 +53,7 @@ export const convertPackageJSToJSON = (
 ) => {
   const script = new vm.Script(code);
   const sandbox = {
-    require: __non_webpack_require__,
+    require: fakeRequire,
     module: {}
   };
   let result;
@@ -75,7 +74,12 @@ export const convertPackageJSToJSON = (
     publishConfig: { registry: "http://registry.webthing.co/" },
     main: `dist/${packageName}.js`,
     browser: `dist/${packageName}.js`,
-    esm: `dist/${packageName}.esm.js`
+    esm: `dist/${packageName}.esm.js`,
+    dependencies: {
+      ...(result.dependencies || {}),
+      "@webthing/core": require("@webthing/core/package.json").version,
+      "@webthing/registry": require("@webthing/registry/package.json").version
+    }
   };
 
   return JSON.stringify(packageJS);
@@ -91,7 +95,7 @@ export const convertTemplatePackageJSToJSON = (
 
   const script = new vm.Script(code);
   const sandbox = {
-    require: __non_webpack_require__,
+    require: fakeRequire,
     module: {}
   };
   let result;
@@ -108,14 +112,20 @@ export const convertTemplatePackageJSToJSON = (
   }
 
   const packageJS = merge({}, existingPackageJSON, {
-    webthing: merge({
-      existingPackageJSON,
-      result
-    }),
+    webthing: merge({}, existingPackageJSON, result),
     publishConfig: { registry: "http://registry.webthing.co/" },
     main: `dist/template.js`,
     browser: `dist/template.js`,
-    esm: `dist/template.esm.js`
+    esm: `dist/template.esm.js`,
+    dependencies: {
+      ...(existingPackageJSON.dependencies || {}),
+      "@webthing/core": require("@webthing/core/package.json").version,
+      "@webthing/registry": require("@webthing/registry/package.json").version
+    },
+    devDependencies: {
+      ...(existingPackageJSON.devDependencies || {}),
+      "@webthing/cli": require("../../package.json").version
+    }
   });
 
   return JSON.stringify(packageJS);

@@ -16,7 +16,7 @@ import {
   LogLevel
 } from "../lib/WebthingComponent";
 import { startServer } from "../lib/devServer";
-import { WEBTHING_ROOT } from "../lib/paths";
+import { CLI_ROOT } from "../lib/paths";
 
 type DevComponentProps = {
   component: WebthingComponent;
@@ -169,7 +169,7 @@ const DevComponentStatus = observer(_DevComponentStatus);
 
 const getVersion = memoize(() => {
   const { version } = JSON.parse(
-    fs.readFileSync(join(WEBTHING_ROOT, "./package.json"), "utf8")
+    fs.readFileSync(join(CLI_ROOT, "./package.json"), "utf8")
   );
 
   return version;

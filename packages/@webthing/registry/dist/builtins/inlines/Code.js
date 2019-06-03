@@ -25,8 +25,7 @@
   var CodeAsset2x = "https://codeblog-public.storage.googleapis.com/InlineCode@2x.png";
   var CodeAsset3x = "https://codeblog-public.storage.googleapis.com/InlineCode@3x.png";
   var InlineCodeComponent = (0, _styledBase["default"])("span", {
-    target: "eghw3740",
-    label: "InlineCodeComponent"
+    target: "eghw3740"
   })(process.env.NODE_ENV === "production" ? {
     name: "1mublpz",
     styles: "background-color:#eee;border-radius:1px;font-family:var(--monospace-font);font-weight:500;color:inherit;backface-visibility:hidden;"

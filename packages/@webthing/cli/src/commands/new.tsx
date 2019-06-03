@@ -18,7 +18,7 @@ import { openInEditor } from "../lib/openInEditor";
 import { jsFileName, packageJSFilename } from "../lib/packageUtils";
 import {
   WEBTHING_BIN,
-  WEBTHING_ROOT,
+  CLI_ROOT,
   WEBTHING_BIN_FILENAME
 } from "../lib/paths";
 import { requireLogin } from "./login";
@@ -27,7 +27,7 @@ import { isLoggedIn } from "../lib/api";
 
 type Choice = "block" | "inline";
 
-const BOILERPLATE_PATH = path.resolve(WEBTHING_ROOT, "boilerplate");
+const BOILERPLATE_PATH = path.resolve(CLI_ROOT, "boilerplate");
 
 const BLOCK_COMPONENT_BOILERPLATE_PATH = path.join(
   BOILERPLATE_PATH,

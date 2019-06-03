@@ -133,9 +133,9 @@ export const WebthingIndexPage = (props: WebthingPostProps) => {
                     pageType="index"
                     environment={props.environment}
                     post={contextProps.posts[index]}
-                    template={template}
-                    posts={[]}
+                    posts={props.posts}
                     blog={props.blog}
+                    template={template}
                     BlogComponent={BlogComponent}
                     BlogPostComponent={BlogPostComponent}
                   >

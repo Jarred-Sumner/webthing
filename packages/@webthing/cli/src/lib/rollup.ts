@@ -16,11 +16,11 @@ import {
   templatePackageFilename,
   templateJSFilename
 } from "./packageUtils";
-import { WEBTHING_ROOT, WEBTHING_ENTRY_NORMALIZER } from "./paths";
+import { CLI_ROOT, WEBTHING_ENTRY_NORMALIZER } from "./paths";
 import alias from "rollup-plugin-strict-alias";
 import json from "rollup-plugin-json";
 
-export const NODE_MODULES = path.join(WEBTHING_ROOT, "node_modules");
+export const NODE_MODULES = path.join(CLI_ROOT, "node_modules");
 
 const BUNDLED_MODULES = [
   "@emotion/core",
