@@ -12,10 +12,7 @@
     "build-js": "NODE_ENV=development babel src -x .js,.tsx,.ts -d dist --verbose",
     "build": "yarn build-js && yarn build-typescript"
   },
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "peerDependencies": {
     "classnames": "^2.2.6",
     "emotion-theming": "^10.0.10",
@@ -26,6 +23,9 @@
     "react-is": "^16.8.6",
     "scriptjs": "^2.5.9",
     "tinycolor2": "^1.4.1"
+  },
+  "dependencies": {
+    "memoizee": "0.4.14"
   },
   "gitHead": "e5add848f1d0d6d88e05d0ec16660f07bd2a77d6",
   "devDependencies": {

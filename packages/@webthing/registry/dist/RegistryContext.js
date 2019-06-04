@@ -1,25 +1,28 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "react", "./index", "react-is", "lodash"], factory);
+    define(["exports", "@emotion/core", "react", "./index", "react-is", "lodash", "memoizee"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("react"), require("./index"), require("react-is"), require("lodash"));
+    factory(exports, require("@emotion/core"), require("react"), require("./index"), require("react-is"), require("lodash"), require("memoizee"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global.react, global.index, global.reactIs, global.lodash);
+    factory(mod.exports, global.core, global.react, global.index, global.reactIs, global.lodash, global.memoizee);
     global.RegistryContext = mod.exports;
   }
-})(this, function (_exports, _core, React, _index, _reactIs, _lodash) {
+})(this, function (_exports, _core, React, _index, _reactIs, _lodash, _memoizee) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports.normalizeBlock = normalizeBlock;
-  _exports.normalizeInline = normalizeInline;
-  _exports.RegistryProvider = _exports.isVoid = _exports.RegistryContext = void 0;
+  _exports._normalizeBlock = _normalizeBlock;
+  _exports._normalizeInline = _normalizeInline;
+  _exports.RegistryProvider = _exports.normalizeInline = _exports.normalizeBlock = _exports.isVoid = _exports.RegistryContext = void 0;
   React = _interopRequireWildcard(React);
+  _memoizee = _interopRequireDefault(_memoizee);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
   function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj["default"] = obj; return newObj; } }
 
@@ -50,6 +53,10 @@
   function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
   function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+  function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
   function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -204,7 +211,16 @@
     };
   };
 
-  function normalizeBlock(_ref4) {
+  var cacheResolver = function cacheResolver(node) {
+    var _node$ = node[0],
+        Component = _node$.Component,
+        EditorComponent = _node$.EditorComponent,
+        props = _objectWithoutProperties(_node$, ["Component", "EditorComponent"]);
+
+    return JSON.stringify(props);
+  };
+
+  function _normalizeBlock(_ref4) {
     var title = _ref4.title,
         description = _ref4.description,
         screenshot = _ref4.screenshot,
@@ -216,13 +232,17 @@
         isVoid = _ref4.isVoid,
         _ref4$multiLine = _ref4.multiLine,
         multiLine = _ref4$multiLine === void 0 ? false : _ref4$multiLine,
-        Component = _ref4.Component,
+        _Component = _ref4.Component,
         isDevelopment = _ref4.isDevelopment,
+        _ref4$isGrouped = _ref4.isGrouped,
+        isGrouped = _ref4$isGrouped === void 0 ? false : _ref4$isGrouped,
         _EditorComponent = _ref4.EditorComponent,
-        editableProps = _ref4.editableProps,
+        _ref4$editableProps = _ref4.editableProps,
+        editableProps = _ref4$editableProps === void 0 ? {} : _ref4$editableProps,
         _ref4$defaultProps = _ref4.defaultProps,
         defaultProps = _ref4$defaultProps === void 0 ? {} : _ref4$defaultProps,
         id = _ref4.id;
+    var Component = _Component ? React.memo(_Component) : _Component;
     var EditorComponent = _EditorComponent || Component;
 
     if (defaultProps && Component) {
@@ -237,6 +257,7 @@
       src: src,
       author: author,
       screenshot: normalizeImageURL(screenshot),
+      isGrouped: category === _index.CategoryType.block && isGrouped ? true : false,
       isRemote: isRemote,
       multiLine: multiLine || false,
       isDevelopment: isDevelopment,
@@ -252,7 +273,13 @@
     };
   }
 
-  function normalizeInline(_ref5) {
+  var normalizeBlock = (0, _memoizee["default"])(_normalizeBlock, {
+    normalizer: cacheResolver,
+    primitive: true
+  });
+  _exports.normalizeBlock = normalizeBlock;
+
+  function _normalizeInline(_ref5) {
     var title = _ref5.title,
         description = _ref5.description,
         screenshot = _ref5.screenshot,
@@ -262,13 +289,14 @@
         isRemote = _ref5.isRemote,
         isDevelopment = _ref5.isDevelopment,
         author = _ref5.author,
-        Component = _ref5.Component,
+        _Component = _ref5.Component,
         _EditorComponent = _ref5.EditorComponent,
         _ref5$editableProps = _ref5.editableProps,
         editableProps = _ref5$editableProps === void 0 ? {} : _ref5$editableProps,
         _ref5$defaultProps = _ref5.defaultProps,
         defaultProps = _ref5$defaultProps === void 0 ? {} : _ref5$defaultProps,
         id = _ref5.id;
+    var Component = _Component ? React.memo(_Component) : _Component;
     var EditorComponent = _EditorComponent || Component;
 
     if (defaultProps && Component) {
@@ -284,6 +312,7 @@
       placeholder: placeholder,
       Component: Component,
       author: author,
+      isGrouped: false,
       src: src,
       isRemote: isRemote,
       EditorComponent: EditorComponent,
@@ -295,6 +324,12 @@
       })
     };
   }
+
+  var normalizeInline = (0, _memoizee["default"])(_normalizeInline, {
+    normalizer: cacheResolver,
+    primitive: true
+  });
+  _exports.normalizeInline = normalizeInline;
 
   var RegistryProvider =
   /*#__PURE__*/

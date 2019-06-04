@@ -42,6 +42,7 @@
     id: _registry.BlockTypes.paragraph,
     title: "Paragraph",
     category: _registry.CategoryType.block,
+    isGrouped: true,
     placeholder: "Type '/' for magic",
     description: "The classic.",
     screenshot: {
@@ -57,6 +58,7 @@
     multiLine: true,
     placeholder: "",
     description: "Add a quote",
+    isGrouped: true,
     screenshot: {
       "1x": BlockQuoteAsset1x,
       "2x": BlockQuoteAsset2x,
@@ -72,6 +74,7 @@
     category: _registry.CategoryType.header,
     placeholder: "Give it a name",
     description: "Big section heading",
+    isGrouped: false,
     screenshot: {
       "1x": H1Asset1x,
       "2x": H1Asset2x,
@@ -87,6 +90,7 @@
     id: _registry.BlockTypes.header,
     title: "Header",
     category: _registry.CategoryType.header,
+    isGrouped: false,
     placeholder: "A new section",
     description: "Normal section header",
     screenshot: {

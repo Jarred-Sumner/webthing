@@ -22,6 +22,7 @@ export const Blocks = {
     id: BlockTypes.paragraph,
     title: "Paragraph",
     category: CategoryType.block,
+    isGrouped: true,
     placeholder: "Type '/' for magic",
     description: "The classic.",
     screenshot: {
@@ -39,6 +40,7 @@ export const Blocks = {
     multiLine: true,
     placeholder: "",
     description: "Add a quote",
+    isGrouped: true,
     screenshot: {
       "1x": BlockQuoteAsset1x,
       "2x": BlockQuoteAsset2x,
@@ -55,6 +57,7 @@ export const Blocks = {
     category: CategoryType.header,
     placeholder: "Give it a name",
     description: "Big section heading",
+    isGrouped: false,
     screenshot: {
       "1x": H1Asset1x,
       "2x": H1Asset2x,
@@ -71,6 +74,7 @@ export const Blocks = {
     id: BlockTypes.header,
     title: "Header",
     category: CategoryType.header,
+    isGrouped: false,
     placeholder: "A new section",
     description: "Normal section header",
     screenshot: {

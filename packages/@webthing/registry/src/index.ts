@@ -78,6 +78,7 @@ export type ComponentManifest = {
   src: string | null;
   isRemote: boolean;
   isVoid?: boolean;
+  isGrouped: boolean;
   Component: React.ComponentType<any> | null;
   EditorComponent: React.ComponentType<any> | null;
   editableProps?: EditablePropMap;

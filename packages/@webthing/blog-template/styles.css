@@ -96,6 +96,7 @@ html {
 /* ---- CSS variables ---- */
 
 :root {
+    --system-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --monospace-font: "Inconsolata", monospace;
     --body-font: "Source Serif Pro", sans-serif;
     --headings-font: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
