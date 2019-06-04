@@ -1,6 +1,6 @@
 {
   "name": "@webthing/core",
-  "version": "3.3.27",
+  "version": "3.3.28",
   "browser": "dist/index.js",
   "main": "dist/index.js",
   "license": "MIT",
@@ -12,7 +12,10 @@
     "build-js": "NODE_ENV=development babel src -x .js,.tsx,.ts -d dist --verbose",
     "build": "yarn build-js && yarn build-typescript"
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "peerDependencies": {
     "classnames": "^2.2.6",
     "emotion-theming": "^10.0.10",

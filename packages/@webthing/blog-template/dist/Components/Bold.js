@@ -25,7 +25,8 @@
   var BoldAsset2x = "https://codeblog-public.storage.googleapis.com/Bold@2x.png";
   var BoldAsset3x = "https://codeblog-public.storage.googleapis.com/Bold@3x.png";
   var BoldComponent = (0, _styledBase["default"])("strong", {
-    target: "e14sevtr0"
+    target: "e14sevtr0",
+    label: "BoldComponent"
   })(process.env.NODE_ENV === "production" ? {
     name: "15ae08g",
     styles: "font-weight:600;color:currentColor;"
