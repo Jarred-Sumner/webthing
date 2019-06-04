@@ -1,6 +1,11 @@
 # Change Log - @webthing/core
 
-This log was last generated on Tue, 04 Jun 2019 00:11:49 GMT and should not be manually modified.
+This log was last generated on Tue, 04 Jun 2019 00:16:52 GMT and should not be manually modified.
+
+## 3.3.29
+Tue, 04 Jun 2019 00:16:52 GMT
+
+*Version update only*
 
 ## 3.3.28
 Tue, 04 Jun 2019 00:11:49 GMT
