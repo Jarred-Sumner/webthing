@@ -307,7 +307,7 @@ export function normalizeInline({
   isRemote,
   isDevelopment,
   author,
-  Component: _Component,
+  Component,
   EditorComponent: _EditorComponent,
   editableProps = {},
   defaultProps = {},
