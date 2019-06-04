@@ -35,8 +35,6 @@ const fakeRequire = (id: string) => {
   }
 };
 
-Object.assign(fakeRequire, __non_webpack_require__);
-
 export const compilePackageJSFile = async (filepath: string) => {
   const { code } = await transformFileAsync(filepath, {
     presets: PACKAGE_BABEL_RC.presets,
